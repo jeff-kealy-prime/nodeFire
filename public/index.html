@@ -43,7 +43,20 @@
             {{secret.secretText}}
           </td>
         </tr>
+        <tr>
+          <div ng-if="sc.secretData.length > 0" >
+            <label for="addEmail"></label>
+            <input ng-model="sc.newUser.email" type="text" name="addEmail">
+            <button type="button" >Add User</button>
+            {{sc.secrecyLevel}}
+            <select ng-model="sc.newUser.clearanceLevel">
+              <option ng-repeat="secret in sc.secretData" value="{{secret.secrecyLevel}}">{{secret.secrecyLevel}}</option>
+            </select>
+          </div>
+        </tr>
       </tbody>
     </table>
+
+
   </body>
 </html>

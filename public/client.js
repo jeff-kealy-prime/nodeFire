@@ -2,6 +2,7 @@ var app = angular.module("sampleApp", ["firebase"]);
 app.controller("SampleCtrl", function($firebaseAuth, $http) {
   var auth = $firebaseAuth();
   var self = this;
+  self.newUser = {};
 
   // This code runs whenever the user logs in
   self.logIn = function(){
@@ -29,6 +30,7 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
           }
         }).then(function(response){
           self.secretData = response.data;
+          console.log(self.secretData);
         });
       });
     } else {
@@ -37,6 +39,8 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
     }
 
   });
+  //add new user function
+
 
   // This code runs when the user logs out
   self.logOut = function(){
